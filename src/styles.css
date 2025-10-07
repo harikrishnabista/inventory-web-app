@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 2rem;
+}
+
+h1 {
+  color: #333;
+}
+
+ul.custom-list {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 1rem 2rem;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+ul.custom-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+ul.custom-list li:last-child {
+  border-bottom: none;
+}
+
+.manage-btn {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.5rem 1.5rem;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.manage-btn:hover {
+  background: #125ea2;
+}
