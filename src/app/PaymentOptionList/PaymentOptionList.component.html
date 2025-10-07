@@ -1,7 +1,7 @@
 <h1>Hello Payment Option List</h1>
 <ul class="custom-list">
   <li *ngFor="let source of paymentSources">
-    <strong>{{ source.paymentSourceName }}</strong> - <span>{{ source.accNumber }}</span>
+    <strong>{{ source.name }}</strong> - <span>{{ source.accountNumber }}</span>
   </li>
 </ul>
 <button routerLink="/" class="manage-btn">Back to Home</button>
