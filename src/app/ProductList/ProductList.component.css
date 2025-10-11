@@ -1,0 +1,9 @@
+/* Basic styles for product list */
+.product-form { margin-bottom: 1rem; }
+.form-row { margin-bottom: 0.5rem; }
+.custom-list { list-style: none; padding: 0; }
+.custom-list li { padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+.manage-btn { margin-left: 0.5rem; }
+.manage-btn.danger { color: #fff; background: #d9534f; border: none; padding: 0.25rem 0.5rem; }
+.desc { color: #666; font-size: 0.9rem; }
+.actions { margin-top: 1rem; }

@@ -1,0 +1,43 @@
+<h1>Product List</h1>
+<section class="product-form">
+  <h2>Add Product</h2>
+  <form (ngSubmit)="addProduct()">
+    <div class="form-row">
+      <label for="title">Title</label>
+      <input id="title" name="title" type="text" [(ngModel)]="title" />
+    </div>
+    <div class="form-row">
+      <label for="price">Price</label>
+      <input id="price" name="price" type="number" [(ngModel)]="price" />
+    </div>
+    <div class="form-row">
+      <label for="description">Description</label>
+      <input id="description" name="description" type="text" [(ngModel)]="description" />
+    </div>
+    <div class="form-row">
+      <button type="submit" class="manage-btn">Add Product</button>
+    </div>
+  </form>
+</section>
+
+<ul class="custom-list">
+  <li *ngFor="let p of products">
+    <ng-container *ngIf="editingId !== p.id; else editBlock">
+      <strong>{{ p.title }}</strong> - <span>{{ p.price | number:'1.2-2' }}</span>
+      <div class="desc">{{ p.description }}</div>
+      <button class="manage-btn" (click)="startEdit(p)">Edit</button>
+      <button class="manage-btn danger" (click)="deleteProduct(p)">Delete</button>
+    </ng-container>
+    <ng-template #editBlock>
+      <input [(ngModel)]="editTitle" />
+      <input type="number" [(ngModel)]="editPrice" />
+      <input [(ngModel)]="editDescription" />
+      <button class="manage-btn" (click)="saveEdit(p)">Save</button>
+      <button class="manage-btn" (click)="cancelEdit()">Cancel</button>
+    </ng-template>
+  </li>
+</ul>
+
+<div class="actions">
+  <button routerLink="/" class="manage-btn">Back to Home</button>
+</div>
