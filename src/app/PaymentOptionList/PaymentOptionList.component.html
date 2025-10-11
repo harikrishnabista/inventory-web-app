@@ -1,7 +1,36 @@
 <h1>Hello Payment Option List</h1>
+<section class="bank-form">
+  <h2>Add A New Bank Details</h2>
+  <form (ngSubmit)="addBank()">
+    <div class="form-row">
+      <label for="bankName">Bank Name</label>
+      <input id="bankName" name="bankName" type="text" placeholder="Enter bank name" [(ngModel)]="bankName" />
+    </div>
+    <div class="form-row">
+      <label for="accountNumber">Account Number</label>
+      <input id="accountNumber" name="accountNumber" type="text" placeholder="Enter account number" [(ngModel)]="accountNumber" />
+    </div>
+    <div class="form-row">
+      <button type="submit" class="manage-btn">Save Bank</button>
+    </div>
+  </form>
+</section>
 <ul class="custom-list">
   <li *ngFor="let source of paymentSources">
-    <strong>{{ source.name }}</strong> - <span>{{ source.accountNumber }}</span>
+    <ng-container *ngIf="editingId !== source.id; else editBlock">
+      <strong>{{ source.name }}</strong> - <span>{{ source.accountNumber }}</span>
+      <button class="manage-btn" (click)="startEdit(source)">Edit</button>
+      <button class="manage-btn danger" (click)="deleteBank(source)">Delete</button>
+    </ng-container>
+    <ng-template #editBlock>
+      <input [(ngModel)]="editName" />
+      <input [(ngModel)]="editAccountNumber" />
+      <button class="manage-btn" (click)="saveEdit(source)">Save</button>
+      <button class="manage-btn" (click)="cancelEdit()">Cancel</button>
+    </ng-template>
   </li>
 </ul>
-<button routerLink="/" class="manage-btn">Back to Home</button>
+
+<div class="actions">
+  <button routerLink="/" class="manage-btn">Back to Home</button>
+</div>
